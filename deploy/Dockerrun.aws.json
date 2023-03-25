@@ -1,0 +1,62 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "frontend",
+            "image": "benspeakman/frontend",
+            "essential": true,
+            "memory": 128,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "backend"
+            ]
+        },
+        {
+            "name": "backend",
+            "image": "benspeakman/backend",
+            "essential": true,
+            "memory": 128,
+            "portMappings": [
+                {
+                    "hostPort": 3001,
+                    "containerPort": 3001
+                }
+            ]
+        },
+        {
+            "name": "nginx",
+            "image": "nginx",
+            "essential": true,
+            "memory": 128,
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "containerPort": 8080
+                }
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "nginxconf",
+                    "containerPath": "/etc/nginx/conf.d"
+                }
+            ],
+            "links": [
+                "backend",
+                "frontend"
+            ]
+        }
+    ],
+    "volumes": [
+        {
+            "name": "nginxconf",
+            "host": {
+                "sourcePath": "/var/app/current/proxy/conf.d"
+            }
+        }
+    ]
+}
