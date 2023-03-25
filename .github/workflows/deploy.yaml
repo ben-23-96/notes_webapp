@@ -27,16 +27,14 @@ jobs:
     - name: Build and push Docker API image
       uses: docker/build-push-action@v4.0.0
       with:
-        file: ./api/Dockerfile
-        context: .
+        context: ./api
         push: true
         tags: benspeakman/backend:latest
         
     - name: Build and push Docker Client image
       uses: docker/build-push-action@v4.0.0
       with:
-        file: ./client/Dockerfile
-        context: .
+        context: ./client
         push: true
         tags: benspeakman/frontend:latest
         
