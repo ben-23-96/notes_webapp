@@ -47,7 +47,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Generate deployment package
-      run: zip -r deploy.zip deploy
+      run: cd deploy; zip -r ../deploy.zip *
       
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v21
