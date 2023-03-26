@@ -1,5 +1,5 @@
 class API {
-    baseUrl = process.env.REACT_APP_API_URL || "http://localhost:3001/api";
+    baseUrl = process.env.REACT_APP_URL || "http://localhost:3001/api";
 
     async getData() {
         const response = await fetch(`${this.baseUrl}/get-notes`,

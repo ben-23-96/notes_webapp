@@ -6,6 +6,8 @@ import DeleteButton from './components/deleteNoteButton';
 export default function MyApp() {
     const [data, setData] = useState([]);
     const api = new API()
+    console.log('hello')
+    console.log(process.env.REACT_APP_URL)
 
     useEffect(() => {
         async function fetchData() {
