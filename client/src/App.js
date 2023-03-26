@@ -7,6 +7,8 @@ export default function MyApp() {
     const [data, setData] = useState([]);
     const api = new API()
     console.log('hello')
+    console.log(process.env.PORT)
+    console.log(process.env.REACT_APP_PORT)
     console.log(process.env.REACT_APP_URL)
 
     useEffect(() => {

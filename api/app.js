@@ -30,9 +30,6 @@ app.use(function (req, res, next) {
     next(createError(404));
 });
 
-app.get('/test', (req, res) => {
-    res.send('hello world')
-})
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -48,6 +45,7 @@ app.use(function (err, req, res, next) {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
     console.log(process.env.REACT_APP_URL)
+    console.log(process.env.PORT)
 })
 
 module.exports = app;
