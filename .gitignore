@@ -1,5 +1,6 @@
 *node_modules
-*.env
+client/.env.devolpment
+api/.env
 # Elastic Beanstalk Files
 deploy/.elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

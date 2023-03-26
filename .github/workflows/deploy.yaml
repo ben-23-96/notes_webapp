@@ -30,6 +30,10 @@ jobs:
         context: ./api
         push: true
         tags: benspeakman/backend:latest
+
+    - name: Set up environment variables for react Client image
+        run: |
+          echo "REACT_APP_URL=${{ secrets.REACT_APP_URL }}" >> client/.env
         
     - name: Build and push Docker Client image
       uses: docker/build-push-action@v4.0.0
