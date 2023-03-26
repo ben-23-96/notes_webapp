@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 const { getNotes, addNote, deleteNote } = require('../db/db')
 
-const baseUrl = process.env.REACT_APP_API_URL || "http://localhost:3001/api";
-
 router.get('/get-notes', async function (req, res, next) {
     let data = await getNotes()
     let dataToSend = data.map(data => ({ "id": data.NoteID.S, "noteText": data.note.M.noteText.S, "date": data.note.M.date.S }))
@@ -11,7 +9,6 @@ router.get('/get-notes', async function (req, res, next) {
 });
 
 router.post('/add-note', async function (req, res, next) {
-    //console.log(req)
     console.log(req.body)
     let text = req.body.noteText
     console.log(req.body.noteText)
