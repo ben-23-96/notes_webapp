@@ -10,7 +10,7 @@ var apiRouter = require('./routes/api')
 require('dotenv').config();
 
 var app = express();
-var port = 3001;
+var port = 3000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
