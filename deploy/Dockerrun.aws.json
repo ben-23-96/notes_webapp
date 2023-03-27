@@ -55,7 +55,7 @@
         {
             "name": "nginxconf",
             "host": {
-                "sourcePath": "/var/app/current/nginx/conf.d"
+                "sourcePath": "/var/app/current/.platform/nginx/conf.d"
             }
         }
     ]
