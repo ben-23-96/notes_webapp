@@ -3,17 +3,18 @@ services:
   frontend:
     build: ./client
     ports:
-      - 80:80
+      - 5000:5000
     depends_on:
       - backend
+    restart: always
   backend:
     build: ./api
     ports:
-      - 3001:3001
+      - 3000:3000
   nginx:
     image: nginx
     ports:
-      - '8080:8080'
+      - '80:80'
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
