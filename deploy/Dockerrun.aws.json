@@ -45,7 +45,7 @@
                     "containerPath": "/etc/nginx/conf.d"
                 },
                 {
-                    "sourceVolume": "awseb-logs-nginx-proxy",
+                    "sourceVolume": "awseb-logs-nginx",
                     "containerPath": "/var/log/nginx"
                 }
             ],
