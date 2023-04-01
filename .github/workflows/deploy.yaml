@@ -29,7 +29,9 @@ jobs:
       with:
         context: ./api
         push: true
-        tags: [benspeakman/backend:latest, benspeakman/backend:${{ github.sha }}]
+        tags: |
+          benspeakman/backend:latest
+          benspeakman/backend:${{ github.sha }}
 
     - name: Set up environment variables for react Client image
       run: |
@@ -40,7 +42,9 @@ jobs:
       with:
         context: ./client
         push: true
-        tags: [benspeakman/frontend:latest, benspeakman/frontend:${{ github.sha }}]
+        tags: |
+          benspeakman/frontend:latest
+          benspeakman/frontend:${{ github.sha }}
         
  deploy_to_elasticbeanstalk:
   name: deploy to elasticbeanstalk
