@@ -15,7 +15,7 @@ class API {
         //event.preventDefault()
         console.log(text)
         let data = { noteText: text }
-        const response = await fetch(`${this.baseUrl}/add-note`, {
+        const response = await fetch(`${this.baseUrl}/api/add-note`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ class API {
     async deleteData(noteId) {
         console.log(noteId)
         let data = { noteId: noteId }
-        const response = await fetch(`${this.baseUrl}/delete-note`, {
+        const response = await fetch(`${this.baseUrl}/api/delete-note`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
