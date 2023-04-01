@@ -29,7 +29,7 @@ jobs:
       with:
         context: ./api
         push: true
-        tags: benspeakman/backend:latest
+        tags: [benspeakman/backend:latest, benspeakman/backend:${{ github.sha }}]
 
     - name: Set up environment variables for react Client image
       run: |
@@ -40,7 +40,7 @@ jobs:
       with:
         context: ./client
         push: true
-        tags: benspeakman/frontend:latest
+        tags: [benspeakman/frontend:latest, benspeakman/frontend:${{ github.sha }}]
         
  deploy_to_elasticbeanstalk:
   name: deploy to elasticbeanstalk
@@ -49,6 +49,9 @@ jobs:
   steps:
     - name: Checkout source code
       uses: actions/checkout@v2
+
+    - name: Add version to images in Dockerrun.aws.json
+      run: sed -i "s|benspeakman/frontend|benspeakman/frontend:${{ github.sha }}|g" "deploy/Dockerrun.aws.json"; sed -i "s|benspeakman/backend|benspeakman/backend:{{ github.sha }}|g" "deploy/Dockerrun.aws.json"
 
     - name: Generate deployment package
       run: cd deploy; zip -r ../deploy.zip .
