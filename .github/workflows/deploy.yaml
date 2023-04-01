@@ -55,7 +55,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Add version to images in Dockerrun.aws.json
-      run: sed -i "s|benspeakman/frontend|benspeakman/frontend:${{ github.sha }}|g" "deploy/Dockerrun.aws.json"; sed -i "s|benspeakman/backend|benspeakman/backend:{{ github.sha }}|g" "deploy/Dockerrun.aws.json"
+      run: GITSHA=${{ github.sha }} ;sed -i "s|benspeakman/frontend|benspeakman/frontend:$GITSHA|g" "deploy/Dockerrun.aws.json"; sed -i "s|benspeakman/backend|benspeakman/backend:$GITSHA|g" "deploy/Dockerrun.aws.json"
 
     - name: Generate deployment package
       run: cd deploy; zip -r ../deploy.zip .
