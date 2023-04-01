@@ -41,10 +41,6 @@
             ],
             "mountPoints": [
                 {
-                    "sourceVolume": "nginxconf",
-                    "containerPath": "/etc/nginx/conf.d"
-                },
-                {
                     "sourceVolume": "awseb-logs-nginx",
                     "containerPath": "/var/log/nginx"
                 }
@@ -55,12 +51,5 @@
             ]
         }
     ],
-    "volumes": [
-        {
-            "name": "nginxconf",
-            "host": {
-                "sourcePath": "/var/app/current/.platform/nginx"
-            }
-        }
-    ]
+    "volumes": []
 }
