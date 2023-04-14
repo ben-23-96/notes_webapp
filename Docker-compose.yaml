@@ -1,16 +1,28 @@
 version: '3.8'
 services:
   frontend:
-    build: ./client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    env_file:
+      - client/.dev.env
     ports:
       - 5000:5000
     depends_on:
       - backend
+    volumes:
+      - "./client:/app:delegated"
+      - /app/node_modules
     restart: always
   backend:
-    build: ./api
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
     ports:
       - 3000:3000
+    volumes:
+      - "./api:/app:delegated"
+      - /app/node_modules
   nginx:
     image: nginx
     ports:

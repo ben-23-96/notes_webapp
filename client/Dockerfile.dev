@@ -1,0 +1,19 @@
+FROM node:19-alpine3.16
+
+WORKDIR /app
+
+COPY  package*.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+ENV NODE_ENV=development
+ENV ENV_FILE=./.dev.env
+
+CMD ["npm", "start"]
+
+#docker build -f Dockerfile.dev -t imagename .
+#docker run -i -v $(pwd):/app:delegated -v /app/node_modules -p 5000:5000 --env-file .dev.env --name containername imagename
