@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { API } from '../api/api';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function AddNoteForm({ notes, setNotes }) {
     const [noteText, setNoteText] = useState('');
@@ -10,6 +13,7 @@ function AddNoteForm({ notes, setNotes }) {
         let newNote = response.noteInfo
         console.log(response.status)
         console.log(notes)
+        setNoteText('')
         setNotes([...notes, newNote])
     }
 
@@ -18,9 +22,16 @@ function AddNoteForm({ notes, setNotes }) {
     }
 
     return (
-        <div>
-            <input type="text" value={noteText} onChange={handleNoteTextChange} />
-            <button onClick={() => addNoteToDatabase(noteText)}>Add New</button>
+        <div className="row ms-3">
+            <div className="col-10">
+                <InputGroup>
+                    <InputGroup.Text>New Note</InputGroup.Text>
+                    <Form.Control type="text" value={noteText} onChange={handleNoteTextChange} />
+                </InputGroup>
+            </div>
+            <div className="col-2">
+                <Button onClick={() => addNoteToDatabase(noteText)}>Add</Button>
+            </div>
         </div>
     );
 }
