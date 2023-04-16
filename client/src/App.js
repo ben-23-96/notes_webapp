@@ -12,6 +12,7 @@ export default function MyApp() {
 
     useEffect(() => {
         async function fetchData() {
+            // get notes from database add them to data list
             let resData = await api.getData()
             setData(resData.data)
         }
