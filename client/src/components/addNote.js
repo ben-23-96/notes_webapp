@@ -15,17 +15,6 @@ function AddNoteForm({ notes, setNotes }) {
 
     //noteText the text in the form input used to add a note
     const [noteText, setNoteText] = useState('');
-<<<<<<< HEAD
-    const api = new API();
-
-    // send a reques to add the note to the database and update the notes state so the newly added note is displayed
-    async function addNoteToDatabase(note) {
-        const addNote = api.postData.bind(api);
-        let response = await addNote(note);
-        let newNote = response.noteInfo;
-
-        setNotes([...notes, newNote]);
-=======
     const api = new API()
 
     async function addNoteToDatabase(note) {
@@ -38,7 +27,6 @@ function AddNoteForm({ notes, setNotes }) {
         setNoteText('')
         // update page to display newly added note
         setNotes([...notes, newNote])
->>>>>>> 766ce5d42afaa7e2a0d43b030002d6baa2a88485
     }
 
     // Update the noteText state with the input value.
