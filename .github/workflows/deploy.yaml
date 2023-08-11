@@ -65,8 +65,8 @@ jobs:
       with:
        aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
        aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
-       application_name: docker_deploy
-       environment_name: docker-deploy-env
+       application_name: notes_app
+       environment_name: notes-app-env
        version_label: app-${{ github.sha }}
        existing_bucket_name: ${{ secrets.AWS_BUCKET_NAME }}
        region: eu-west-2
