@@ -11,7 +11,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
  * param {Object} props - Contains 'notes' and 'setNotes' properties to manage the notes state.
  */
 function AddNoteForm({ notes, setNotes }) {
-    // notes and setNotes from App.js, notes the notes displayed, setNotes the useState to update them
+    // notes and setNotes from App.js, notes the notes displayed, setNotes the useState to update them.
 
     //noteText the text in the form input used to add a note
     const [noteText, setNoteText] = useState('');
