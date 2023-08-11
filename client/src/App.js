@@ -13,46 +13,21 @@ import DeleteButton from './components/deleteNoteButton';
 export default function MyApp() {
     // State to manage the notes data.
     const [data, setData] = useState([]);
-<<<<<<< HEAD
-
-    const api = new API();
-=======
     const api = new API()
->>>>>>> 766ce5d42afaa7e2a0d43b030002d6baa2a88485
 
     useEffect(() => {
         // send a request to api to retrieve notes from database
         // update state with data
         async function fetchData() {
-<<<<<<< HEAD
-            let resData = await api.getData();
-            setData(resData.data);
-=======
             // get notes from database add them to data list
             let resData = await api.getData()
             setData(resData.data)
->>>>>>> 766ce5d42afaa7e2a0d43b030002d6baa2a88485
         }
         fetchData();
     }, []);
 
     return (
         <div>
-<<<<<<< HEAD
-            <ul>
-                {/* Iterate through the notes data and render a list item for each note */}
-                {data.map(obj => (
-                    <li key={obj.id}>
-                        <div>{obj.noteText}</div>
-                        <div>{obj.date}</div>
-                        {/* Render a DeleteButton component for each note with required props, the use state for existing notes */}
-                        <DeleteButton noteId={obj.id} notes={data} setNotes={setData} />
-                    </li>
-                ))}
-            </ul>
-            {/* Render the AddNoteForm component with required props, the use state for existing notes */}
-            <AddNoteForm notes={data} setNotes={setData} />
-=======
             <Container className='mt-4'>
                 <ul className="justify-content-center">
                     <Row className='pb-4'>
@@ -79,7 +54,6 @@ export default function MyApp() {
                 </ul>
                 <AddNoteForm notes={data} setNotes={setData} />
             </Container>
->>>>>>> 766ce5d42afaa7e2a0d43b030002d6baa2a88485
         </div>
     );
 }
