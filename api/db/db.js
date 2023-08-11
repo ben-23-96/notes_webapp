@@ -13,7 +13,7 @@ const client = new DynamoDBClient({
 async function addNote({ note }) {
     let item = {
         NoteID: { S: v4() },
-        note: { M: { noteText: { S: note }, date: { S: new Date().toString() } } }
+        note: { M: { noteText: { S: note }, date: { S: new Date().toDateString() } } }
     }
     const params = {
         TableName: 'notesDb',
