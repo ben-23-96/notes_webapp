@@ -6,3 +6,6 @@ RUN npm install
 COPY . .
 EXPOSE 3000
 CMD ["npm", "run", "development-start"]
+
+#docker build -f Dockerfile.dev -t imagename .
+#docker run -i -v $(pwd):/app:delegated -v /app/node_modules -p 3000:3000 --name containername imagename
